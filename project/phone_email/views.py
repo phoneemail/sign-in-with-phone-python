@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import requests
 
-# Phone.email API credentials
-CLIENT_ID = "YOUR_CLIENT_ID"
-REDIRECT_URL = "YOUR_REDIRECT_URL"
-AUTH_URL = f"https://auth.phone.email/log-in?client_id={CLIENT_ID}&redirect_url={REDIRECT_URL}"
-
 def index(request):
     try:
+
+        # Phone.email API credentials
+        CLIENT_ID = "YOUR_CLIENT_ID"
+        REDIRECT_URL = request.scheme + '://' + request.get_host()
+        AUTH_URL = f"https://auth.phone.email/log-in?client_id={CLIENT_ID}&redirect_url={REDIRECT_URL}"
+
         # Retrieve access_token from the query parameters
         access_token = request.GET.get('access_token', None)
         

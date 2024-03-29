@@ -54,6 +54,7 @@ To utilize the application:
 1. **Start the application:**
 
     ```bash
+    cd project
     python manage.py runserver
     ```
 

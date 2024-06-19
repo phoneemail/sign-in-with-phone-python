@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-r*jok2_ke@ctd5)poeod7e@0i86f+*qry^=5mq7m01kt6r)yh$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['upwork-django-phone-email.onrender.com']
+ALLOWED_HOSTS = [ 'localhost', '127.0.0.1']
 
 
 # Application definition

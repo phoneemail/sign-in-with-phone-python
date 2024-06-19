@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 50px 30px;
+        }
+        .content {
+            color: #024430 !important;
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(17, 24, 39, .09);
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            font-family: 'sans-serif, serif, system-ui, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif';
+            line-height: 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            background-color: #02BD7E;
+            font-weight: bold;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            font-size: inherit;
+            cursor: pointer;
+            max-width: 320px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            {% if not is_authenticated %}
+                <img class="phe-login-img" width="250px" src="https://storage.googleapis.com/prod-phoneemail-prof-images/phem-widgets/phe-signin-box.svg" alt="phone email login demo" />
+                <h1 style="margin: 10px;">Sign In</h1>
+                <p style="color: #a6a6a6;">Welcome to Sign In with Phone</p>
+                <div class="pe_signin_button" data-client-id="YOUR_CLIENT_ID"></div>
+            {% else %}
+                <img class="phe-login-img" width="250px" src="https://storage.googleapis.com/prod-phoneemail-prof-images/phem-widgets/phe-signin-success.svg" alt="phone email login demo" />
+                <div class="phem-card-body">
+                    <h1>Welcome!</h1>
+                    <h4 style="line-height: 36px;">You are logged in successfully with <br>
+                        {{ user_details.country_code }} {{ user_details.phone_no }}
+                    </h4>
+                </div>
+                <button class="button" onclick="window.location.href='{% url 'logout' %}'">Logout</button>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        const script = document.createElement('script');
+        script.src = 'https://www.phone.email/sign_in_button_v1.js';
+        {% comment %} script src='project\static\sign_in_button_v1.js'; {% endcomment %}
+        script.async = true;
+        document.body.appendChild(script);
+
+        window.phoneEmailListener = function(userObj) {
+            alert(userObj.user_json_url);
+
+        };
+    </script>
+</body>
+</html>

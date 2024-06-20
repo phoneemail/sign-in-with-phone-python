@@ -12,7 +12,7 @@ Welcome to the Django demo repository for integrating "Sign in with Phone" funct
 
 ## Introduction
 
-Phone Email introduces an innovative solution for user authentication - "Sign in with Phone". Our plugin empowers websites to offer seamless phone number verification to users at minimal or no cost. Similar to Firebase phone authentication, our solution embeds a "Log in with phone" button on client websites. Upon clicking, a verification window prompts users to enter their country code and mobile number. After successful verification through OTP sent to the user's mobile, control redirects back to the client website with an access token. Subsequently, passing this access token to the `getuser` REST API retrieves the verified mobile number.
+Phone Email introduces an innovative solution for user authentication - "Sign in with Phone". Our plugin empowers websites to offer seamless phone number verification to users at minimal or no cost. Similar to Firebase phone authentication, our solution embeds a "Log in with phone" button on client websites. Upon clicking, a verification window prompts users to enter their country code and mobile number. After successful OTP verification, control returns to the client website with a JSON URL on `phoneEmailListener` function. Verified mobile details can then be retrieved from this JSON URL.
 
 ### Key Benefits:
 - **Cost-Effective:** Minimal or no cost for phone verification.
@@ -67,7 +67,7 @@ Experience the seamless authentication process firsthand with our [demo](https:/
 
 ## Documentation
 
-For comprehensive documentation on integrating the "Sign in with Phone" plugin into your Django python application, refer to our [documentation](https://www.phone.email/docs#python). The documentation provides detailed instructions, code samples, and configuration options to help you seamlessly integrate the plugin into your project. 
+For comprehensive documentation on integrating the "Sign in with Phone" plugin into your Django python application, refer to our [documentation](https://www.phone.email/docs-sign-in-with-phone). The documentation provides detailed instructions, code samples, and configuration options to help you seamlessly integrate the plugin into your project. 
 
 ## Website
 
